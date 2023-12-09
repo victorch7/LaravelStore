@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\Tienda\Usuarios;
+use App\Http\Controllers\Tienda\Productos;
+use App\Http\Controllers\Tienda\Catalogo;
+use App\Http\Controllers\Tienda\Carrito;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,5 +39,42 @@ Route::middleware('auth')->group(function () {
 //Rutas para Usuarios
 Route::get('/usuarios/listado', [Usuarios::class, 'index']
 )->middleware(['auth', 'verified'])->name('listado_usuarios');
+
+
+/*---------------------RUTAS PRODUCTOS--------------------------------------*/
+Route::get('/productos/listado', [Productos::class, 'index']
+)->middleware(['auth', 'verified'])->name('listado_productos');
+
+//Formulario para agregar productos
+Route::get('/productos/registrar', [Productos::class, 'form_productos']
+)->middleware(['auth', 'verified'])->name('formulario_agregar_producto');
+//Agregar productos por Admin
+Route::post('/productos/crear', [Productos::class, 'registrar']
+)->middleware(['auth', 'verified'])->name('registrar_producto');
+
+//Formulario ruta para editar productos
+Route::get('/productos/editar/{id}', [Productos::class, 'form_edicion']
+)->middleware(['auth', 'verified'])->name('editar_prodform');
+//Editar productos
+Route::post('/productos/edicion/{id}', [Productos::class, 'editar']
+)->middleware(['auth', 'verified'])->name('editar_producto');
+//Eliminar productos por el admin
+Route::get('/productos/eliminar/{id}', [Productos::class, 'eliminar']
+)->middleware(['auth', 'verified'])->name('eliminar_prod');
+//
+/*--------------------------------------------------------------------------*/
+
+/*---------------------RUTAS CATALOGO--------------------------------------*/
+Route::get('/catalogo/listado', [Catalogo::class, 'index']
+)->middleware(['auth', 'verified'])->name('listado_catalogo');
+/*--------------------------------------------------------------------------*/
+
+/*---------------------RUTAS CARRITO--------------------------------------*/
+Route::get('/carrito/listado', [Carrito::class, 'index']
+)->middleware(['auth', 'verified'])->name('listado_carrito');
+/*--------------------------------------------------------------------------*/
+
+
+
 
 require __DIR__.'/auth.php';

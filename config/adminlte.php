@@ -63,12 +63,13 @@ return [
     |
     */
 
-    'logo' => '<b><h4>Zeppelin Store</h4></b>',
+    'logo' => '<b><h>Zeppelin Store</h></b>',
     'logo_img' => 'vendor/adminlte/dist/img/zeppelin3.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Admin Logo',
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -309,6 +310,11 @@ return [
         
         ['header' => 'Secciones'],
         [
+            'text' => 'Inicio',
+            'url'  => '/dashboard',
+            'icon' => 'fas fa-fw fa-home',
+        ],
+        [
             'text' => 'Usuarios',
             'url'  => '/usuarios/listado',
             'icon' => 'fas fa-fw fa-user',
@@ -326,6 +332,16 @@ return [
         [
             'text' => 'Ventas',
             'url'  => '/ventas/listado',
+            'icon' => 'fa fa-shopping-cart',
+        ],
+        [
+            'text' => 'Catalogo',
+            'url'  => '/catalogo/listado',
+            'icon' => 'fa fa-gift',
+        ],
+        [
+            'text' => 'Carrito',
+            'url'  => '/carrito/listado',
             'icon' => 'fa fa-shopping-cart',
         ],
     ],
