@@ -49,7 +49,7 @@
                     <img src="{{ asset($producto->imagen) }}" class="expand-on-hover" alt="Imagen actual" style="max-width: 100px; max-height: 100px;">
                 </div>
             </div>
-    </div>
+         </div>
 
         <div class="row">
         <div class="col mb-3 mt-5">

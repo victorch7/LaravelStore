@@ -11,10 +11,6 @@
 
 @section('content')
 
-    <div class="container m-2">
-        <a href="" class="btn btn-info"><i class="fa fa-lg fa-fw fa-guitar"></i>Agregar</a>
-    </div>
-
     <div class="m-3 bg-secondary p-3" style="border-radius: 8px;">
     <table class="table" id="tabla">
         <thead class="table-dark">
@@ -38,13 +34,34 @@
                 <td>{{ $user->email }}</td>
 
                 <td>
-                    <a href=""  class="btn btn-success"><i class="fa fa-lg fa-fw fa-pen"></i>Editar</a>
-                    <a href="" class="btn btn-danger"><i class="fa fa-lg fa-fw fa-trash"></i>Eliminar</a>
+                    <a href="{{ route('editar_usuform', $user->id) }}"  class="btn btn-success"><i class="fa fa-lg fa-fw fa-pen"></i>Editar</a>
+                    <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#confirmDelete{{ $user->id }}">
+                      <i class="fa fa-lg fa-fw fa-trash"></i> Eliminar
+                     </a>
                 </td>
                 @php
                     $i = $i + 1;
                 @endphp
             </tr>
+            <div class="modal fade" id="confirmDelete{{ $user->id }}" tabindex="-1" aria-labelledby="confirmDeleteLabel{{ $user->id }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="confirmDeleteLabel{{ $user->id }}">Confirmar Eliminación</h5>
+                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ¿Estás seguro de que deseas eliminar este usuario?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <a href="{{ route('eliminar_usu', $user->id) }}" class="btn btn-danger">Eliminar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             @endforeach
         </tbody>
     </table>

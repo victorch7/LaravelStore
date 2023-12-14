@@ -64,6 +64,21 @@ Route::get('/productos/eliminar/{id}', [Productos::class, 'eliminar']
 //
 /*--------------------------------------------------------------------------*/
 
+/*---------------------------RUTAS USUARIOS---------------------------------*/
+Route::get('/usuarios/listado', [Usuarios::class, 'index']
+)->middleware(['auth', 'verified'])->name('listado_usuarios');
+//Formulario ruta para editar productos
+Route::get('/usuarios/editar/{id}', [Usuarios::class, 'form_edicion']
+)->middleware(['auth', 'verified'])->name('editar_usuform');
+//Editar productos
+Route::post('/usuarios/edicion/{id}', [Usuarios::class, 'editar']
+)->middleware(['auth', 'verified'])->name('editar_usuario');
+//Eliminar productos por el admin
+Route::get('/usuarios/eliminar/{id}', [Usuarios::class, 'eliminar']
+)->middleware(['auth', 'verified'])->name('eliminar_usu');
+
+/*-------------------------------------------------------------------------
+
 /*---------------------RUTAS CATALOGO--------------------------------------*/
 Route::get('/catalogo/listado', [Catalogo::class, 'index']
 )->middleware(['auth', 'verified'])->name('listado_catalogo');

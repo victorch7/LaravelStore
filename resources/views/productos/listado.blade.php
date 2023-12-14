@@ -68,24 +68,24 @@
                     $i = $i + 1;
                 @endphp
             </tr>
-            <div class="modal fade" id="confirmDelete{{ $prod->codproducto }}" tabindex="-1" aria-labelledby="confirmDeleteLabel{{ $prod->codproducto }}" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="confirmDeleteLabel{{ $prod->codproducto }}">Confirmar Eliminación</h5>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ¿Estás seguro de que deseas eliminar este producto?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <a href="{{ route('eliminar_prod', $prod->codproducto) }}" class="btn btn-danger">Eliminar</a>
-            </div>
-        </div>
-    </div>
-</div>
-            @endforeach
+                <div class="modal fade" id="confirmDelete{{ $prod->codproducto }}" tabindex="-1" aria-labelledby="confirmDeleteLabel{{ $prod->codproducto }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="confirmDeleteLabel{{ $prod->codproducto }}">Confirmar Eliminación</h5>
+                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ¿Estás seguro de que deseas eliminar este producto?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <a href="{{ route('eliminar_prod', $prod->codproducto) }}" class="btn btn-danger">Eliminar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            @endforeach
         </tbody>
     </table>
     </div>
