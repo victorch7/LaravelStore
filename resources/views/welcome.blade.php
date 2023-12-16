@@ -40,6 +40,11 @@
                                             <a class="nav-link active" aria-current="page" href="{{ route('register') }}"><h5>Registrarse</h5></a>
                                         </li>
                                     @endif
+                                    <li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="{{ route('listado_catalogo') }}"><h5>Catalogo</h5></a>
+                                    </li>
+                                    </li>
                                 </ul>
                             @endauth
                         </div>

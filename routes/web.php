@@ -8,7 +8,8 @@ use App\Http\Controllers\Tienda\Usuarios;
 use App\Http\Controllers\Tienda\Productos;
 use App\Http\Controllers\Tienda\Catalogo;
 use App\Http\Controllers\Tienda\Carrito;
-
+use App\Http\Controllers\Tienda\Ventas;
+use App\Http\Controllers\Tienda\Clientes;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,9 +80,22 @@ Route::get('/usuarios/eliminar/{id}', [Usuarios::class, 'eliminar']
 
 /*-------------------------------------------------------------------------
 
-/*---------------------RUTAS CATALOGO--------------------------------------*/
+/*---------------------------RUTAS VENTAS---------------------------------*/
+Route::get('/ventas/listado', [Ventas::class, 'index']
+)->middleware(['auth', 'verified'])->name('listado_clientes');
+/*-------------------------------------------------------------------------
+
+
+/*---------------------------RUTAS PARA CRUD CLIENTES---------------------------------*/
+Route::get('/clientes/listado', [Clientes::class, 'index']
+)->middleware(['auth', 'verified'])->name('listado_clientes');
+/*-------------------------------------------------------------------------
+
+
+
+/*---------------------RUTAS CATALOGO SIN AUTENTICACION--------------------------------------*/
 Route::get('/catalogo/listado', [Catalogo::class, 'index']
-)->middleware(['auth', 'verified'])->name('listado_catalogo');
+)->middleware(['guest'])->name('listado_catalogo');
 /*--------------------------------------------------------------------------*/
 
 /*---------------------RUTAS CARRITO--------------------------------------*/

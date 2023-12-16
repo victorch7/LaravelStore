@@ -334,16 +334,16 @@ return [
             'url'  => '/ventas/listado',
             'icon' => 'fa fa-shopping-cart',
         ],
-        [
-            'text' => 'Catalogo',
-            'url'  => '/catalogo/listado',
-            'icon' => 'fa fa-gift',
-        ],
-        [
-            'text' => 'Carrito',
-            'url'  => '/carrito/listado',
-            'icon' => 'fa fa-shopping-cart',
-        ],
+        // [
+        //     'text' => 'Catalogo',
+        //     'url'  => '/catalogo/listado',
+        //     'icon' => 'fa fa-gift',
+        // ],
+        // [
+        //     'text' => 'Carrito',
+        //     'url'  => '/carrito/listado',
+        //     'icon' => 'fa fa-shopping-cart',
+        // ],
     ],
 
     /*
