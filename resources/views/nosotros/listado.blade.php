@@ -57,69 +57,96 @@
     
     </header>
     <body class="antialiased" style="background: rgb(26, 26, 26);">
-        <div class="container px-5">
-            <div class="row gx-5 align-items-center justify-content-center">
-              <div class="col-lg-8 col-xl-7 col-xxl-6">
-                <div class="my-5 text-center text-xl-start">
-                  <h1 class="display-5 fw-bolder text-white mb-2">¿Quienes somos?</h1>
-                  <p class="lead fw-normal text-white-50 mb-4">¡Bienvenido a Zeppelin Store!, aqui encontraras gran variedad de accesorios.</p>
-                  <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                    <a class="btn btn-warning btn-lg px-4 me-sm-3" href="{{ route('login') }}">Comenzar</a>
-                    <a class="btn btn-warning btn-lg px-4 me-sm-3" href="{{ route('listado_nosotros') }}">Nosotros</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5"
-                  src="{{ asset('images\logo-zeppelin.png') }}" alt="..." /></div>
-            </div>
-          </div>
+    <style>
+       * {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
 
-          <section class="py-5 text-black-30" style="background: linear-gradient(90deg, #ffcc2f, #ef5734);">
-            <div class="container px-5 my-5">
-              <div class="row gx-5">
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                  <h2 class="fw-bolder mb-0">Algunos de nuestros productos</h2>
-                </div>
-                <div class="col-lg-8"><br>
-                  <div class="row gx-5 row-cols-1 row-cols-md-2">
-                    <div class="col mb-5 h-100">
-                      <h1 class="h4"><i class="bi bi-arrow-through-heart-fill text-danger"></i> Estampados personalizados</h1>
-                    </div>
-                    <div class="col mb-5 mb-md-0 h-100">
-                        <h1 class="h4"><i class="bi bi-radioactive text-warning"></i> Piercings</h1>
-                    </div>
-                    <div class="col mb-5 mb-md-0 h-100">
-                        <h1 class="h4"><i class="bi bi-fire text-danger"></i> Accesorios para fumar</h1>
-                    </div>
-                    <div class="col mb-5 mb-md-0 h-100">
-                        <h1 class="h4"><i class="bi bi-shield-fill-check text-warning"></i> Emblemas y parches</h2>
-                    </div>
-                    <div class="col mb-5 mt-5 mb-md-0 h-100">
-                        <h1 class="h4"><i class="bi bi-emoji-sunglasses-fill text-danger"></i> Camisietas y gorras</h2>
-                    </div>
-                    <div class="col mb-5 mt-5 mb-md-0 h-100">
-                        <h1 class="h4"><i class="bi bi-award-fill text-warning"></i> Joyería</h2>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+        h1{
+            text-align: center;
+            padding: 10px;
+            color: rgb(219, 201, 197 );
+        }
+        .descripcion{
+            text-align: center;
+            padding: 5px 25px;
+            color: rgb(219, 201, 197 );
+        }
 
-          <div class="py-3 text-white" style="background: rgb(26, 26, 26);">
-            <div class="container px-4 my-3">
-              <div class="row gx-5 justify-content-center">
-                <div class="col-lg-10 col-xl-7">
-                  <div class="text-center">
-                    <div class="fs-4 mb-4 fst-italic">En Zeppelin Store te ofrecemos todo lo relacionado en accesorios y artículos para rockeros, metaleros y demas...</div>
-                  </div>
-                  <div class="text-center"><img class="img-fluid"
-                    src="{{ asset('images/info_store.jpg') }}" alt="..." /></div>
-                  </div>
+        .card{
+            width: 100%;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+            align-items: center;
+            background: rgb(226, 218, 216 );
+            text-align: center;
+            cursor: default;
+            transition: all 400ms ease;
+            
+        }
+        
+        img{
+            width: 140px;
+            border-radius: 50%;
+            box-shadow: 2px 2px 5px rgb(216, 216, 216);
+            transform: rotate(-10deg);
+            transition: all .3s;
+        }
+        
+        .card:hover{
+            box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+            transform: translateY(-5%);
+         }
+
+    </style>
+       <h1>Nuestro Equipo de Expertos</h1>
+       <p class="descripcion">Equipo de desarrolladores de la pagina Zeppelin Store</p>
+
+       <div class="container">
+       <div style="display: flex; gap: 20px;">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ asset('images\Victor.png') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h2>Victor Chacon</h2>
+                    <h5>Desarrollador</h5>
+                    <p class="card-text">Ingeniero de sistemas de la Universidad De Nariño</p>
                 </div>
-              </div>
             </div>
-          </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="{{ asset('images\Sotelo.jpeg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h2>David Sotelo</h2>
+                    <h5>Desarrollador</h5>
+                    <p class="card-text">Ingeniero de sistemas de la Universidad De Nariño</p>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="{{ asset('images\Jaiver.jpeg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h2>Jhon Ramirez</h2>
+                    <h5>Desarrollador</h5>
+                    <p class="card-text">Ingeniero de sistemas de la Universidad De Nariño</p>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+                <img src="{{ asset('images\Christian.jpg') }}"" class="card-img-top" alt="...">
+                <div class="card-body">
+                     <h2>Christian Erazo</h2>
+                     <h5>Desarrollador</h5>
+                    <p class="card-text">Ingeniero de sistemas de la Universidad De Nariño</p>
+                </div>
+            </div>
+        </div>
+       </div><br><br>
 
     </body>
     <footer style="background: linear-gradient(90deg, #ffcc2f, #ef5734);">

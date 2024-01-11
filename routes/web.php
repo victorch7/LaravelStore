@@ -10,6 +10,7 @@ use App\Http\Controllers\Tienda\Catalogo;
 use App\Http\Controllers\Tienda\Carrito;
 use App\Http\Controllers\Tienda\Ventas;
 use App\Http\Controllers\Tienda\Clientes;
+use App\Http\Controllers\Tienda\Nosotros;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -101,6 +102,11 @@ Route::get('/catalogo/listado', [Catalogo::class, 'index']
 /*---------------------RUTAS CARRITO--------------------------------------*/
 Route::get('/carrito/listado', [Carrito::class, 'index']
 )->middleware(['auth', 'verified'])->name('listado_carrito');
+/*--------------------------------------------------------------------------*/
+
+/*---------------------Nosotros--------------------------------------*/
+Route::get('/nosotros/listado', [Nosotros::class, 'index']
+)->middleware(['guest'])->name('listado_nosotros');
 /*--------------------------------------------------------------------------*/
 
 
