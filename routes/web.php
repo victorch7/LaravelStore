@@ -103,7 +103,4 @@ Route::get('/carrito/listado', [Carrito::class, 'index']
 )->middleware(['auth', 'verified'])->name('listado_carrito');
 /*--------------------------------------------------------------------------*/
 
-
-
-
 require __DIR__.'/auth.php';
