@@ -78,32 +78,6 @@
         margin-bottom: 30px;
     }
 
-    .card {
-        background-color: #333333;
-        color: #ffffff;
-        border: 2px solid #000000;
-        border-radius: 10px;
-        margin-bottom: 20px;
-        width: 25rem;
-        display: inline-block;
-        margin-right: 10px;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        transition: box-shadow 0.3s ease-in-out;
-    }
-
-    .card:hover {
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-    }
-
-    .card img {
-        height: 300px; 
-        object-fit: cover;
-        border-bottom: 1px solid #000000;
-        width: 100%;
-        transition: transform 0.3s ease-in-out;
-    }
 
     .larger-image {
         display: none;
@@ -116,36 +90,7 @@
         z-index: 1;
     }
 
-    .card:hover img {
-        transform: scale(1.1);
-    }
-
-    .card-body {
-        padding: 15px;
-    }
-
-    .card-title {
-        color: #ff4500;
-        font-size: 20px;
-        margin-top: 10px;
-        text-transform: uppercase;
-    }
-
-    .card-text {
-        color: #cccccc;
-        text-transform: uppercase;
-    }
-
-    .card-description {
-        margin-bottom: 10px;
-    }
-
-    .card-price {
-        font-size: 20px;
-        font-weight: bold;
-        text-transform: uppercase;
-        color: #ff4500;
-    }
+   
 
     button {
         background-color: #ff4500;
@@ -173,35 +118,42 @@
 </div>
 
 <div class="container">
-    <h1 class="rock-title">Catálogo de Productos</h1>
-    <div class="row">
-        @include('partials.msg')
-            @foreach($producto as $index => $prod)
-                @if($index % 3 == 0)
-                    </div><div class="row">
+    <h1 class="rock-title">Carrito de compras</h1>
+    <div class="row justify-content-center">
+       <div class="card">
+            <div class="card-body">
+                @if (Cart::count())
+                    <table class="table table-striped">
+                        <thead>
+                            <th>ID</th>
+                            <th>NOMBRE</th>
+                            <th>CANTIDAD</th>
+                            <th>PRECIO UNITARIO</th>
+                            <th>IMPORTE</th>
+                        </thead>
+                        <tbody>
+                            @foreach (Cart::content() as $prod)
+                                <tr class="align-middle">
+                                    
+                                    <td><img src='{{ asset($prod->imagen) }}' width="50"></td>
+                                    <td>{{$prod->nomproducto}}</td>
+                                    <td>{{$prod->stock}}</td>
+                                    <td>{{number_format($prod->precio)}}</td>
+                                    <td>{{number_format($prod->stock * $prod->precio, 2)}}</td>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                @else
+                    <a href="/" class="text-center">Agrega un producto</a>
                 @endif
-                <div class="col-4">
-                    <div class="card">
-                        <img class="card-img-top" src='{{ asset($prod->imagen) }}' alt="Card image cap">
-                        <div class="larger-image">
-                            <img src='{{ asset($prod->imagen) }}' alt="Larger Preview">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">{{$prod->nomproducto}}</h5>
-                            <p class="card-description card-text">{{$prod->descripcion}}</p>
-                            <p class="card-price card-text"><b>precio: $ </b>{{$prod->precio}}</p>
-                            <p class="card-price card-text"><b>Stock: </b>{{$prod->stock}}</p>
-                        </div>
-                        <div class="card-footer">
-                            <form action="{{route('add')}}" method="post">
-                                @csrf
-                                <input type="hidden" name='id' value="{{$prod->codproducto}}">
-                                <input type="submit" name="btn" class="btn btn-danger w-100" value="Agregar al carrito">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
+            </div>
+       </div>
+
+      
     </div>
 </div>
 

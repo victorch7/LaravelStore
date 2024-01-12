@@ -46,6 +46,13 @@
                                           <a class="nav-link active" aria-current="page" href="{{ route('listado_catalogo') }}"><h5>Catalogo</h5></a>
                                       </li>
                                       </li>
+
+                                      <li>
+                                      <li class="nav-item">
+                                          <a class="nav-link active" aria-current="page" href="{{ route('checkout') }}"><h5>Carrito <span class="bagde bg-danger">{{\Cart::count()}}</span></h5>
+                                          </a>
+                                      </li>
+                                      </li>
                                   </ul>
                               @endauth
                           </div>

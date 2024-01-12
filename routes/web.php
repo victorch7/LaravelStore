@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Gate;
-use App\Http\Controllers\RegisteredUserController;
-use App\Http\Controllers\Tienda\Usuarios;
-use App\Http\Controllers\Tienda\Productos;
-use App\Http\Controllers\Tienda\Catalogo;
-use App\Http\Controllers\Tienda\Carrito;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Tienda\Ventas;
+use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\Tienda\Carrito;
+use App\Http\Controllers\Tienda\Catalogo;
 use App\Http\Controllers\Tienda\Clientes;
 use App\Http\Controllers\Tienda\Nosotros;
+use App\Http\Controllers\Tienda\Usuarios;
+use App\Http\Controllers\Tienda\Productos;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegisteredUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -102,6 +103,13 @@ Route::get('/catalogo/listado', [Catalogo::class, 'index']
 /*---------------------RUTAS CARRITO--------------------------------------*/
 Route::get('/carrito/listado', [Carrito::class, 'index']
 )->middleware(['auth', 'verified'])->name('listado_carrito');
+
+Route::post('cart/add', [App\Http\Controllers\CarritoController::class, 'add'])->name('add');
+Route::get('cart/checkout', [App\Http\Controllers\CarritoController::class, 'checkout'])->name('checkout');
+Route::get('cart/clear', [App\Http\Controllers\CarritoController::class, 'clear'])->name('clear');
+Route::post('cart/removeitem', [App\Http\Controllers\CarritoController::class, 'removeItem'])->name('removeitem');
+
+
 /*--------------------------------------------------------------------------*/
 
 /*---------------------Nosotros--------------------------------------*/
